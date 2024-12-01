@@ -24,6 +24,19 @@ const getBaseUrl = () => {
   return "https://<YOUR_DEPLOYED_WORKER_URL>/"
 }
 
+// const getBaseUrl = () => {
+//   // browser should use relative path
+//   if (typeof window !== "undefined") {
+//     return ""
+//   }
+
+//   return process.env.NODE_ENV === "development"
+//     ? "http://localhost:3000/"
+//     : process.env.VERCEL_URL
+//     ? `https://${process.env.VERCEL_URL}`
+//     : "https://<YOUR_DEPLOYED_WORKER_URL>/"
+// }
+
 export const baseClient = hc<AppType>(getBaseUrl(), {
   fetch: async (input: RequestInfo | URL, init?: RequestInit) => {
     const response = await fetch(input, { ...init, cache: "no-store" })

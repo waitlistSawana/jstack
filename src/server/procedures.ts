@@ -40,4 +40,5 @@ const extendedDatabaseMiddleware = j.middleware(async ({ c, next }) => {
  * This is the base piece you use to build new queries and mutations on your API.
  */
 export const baseProcedure = j.procedure
-export const publicProcedure = baseProcedure.use(extendedDatabaseMiddleware)
+export const publicProcedure = baseProcedure.use(extendedDatabaseMiddleware) // for extendedDatabaseMiddleware
+// export const publicProcedure = baseProcedure
